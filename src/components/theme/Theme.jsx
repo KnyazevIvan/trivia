@@ -23,43 +23,34 @@ export const Theme = (props) => {
 
 
     <div className='container'>
-      <AnswersStyle>
+    
 
 
-        <div className={`title ${toggle&&'active'}`}><Markup content={props.trivieState.question} /></div>
+        <Title  opacity={`${toggle?1:0}`}><Markup content={props.trivieState.question} /></Title>
 
 
 
-        <div className={`answers ${toggle&&'active'}`} style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(true);settoggle(false)} }> {props.trivieState.correct_answer}</div>
-        <div className={`answers ${toggle&&'active'}`} style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} } >  {props.trivieState.incorrect_answers[0]}</div>
-        <div className={`answers ${toggle&&'active'}`} style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} }>  {props.trivieState.incorrect_answers[1]}</div>
-        <div className={`answers ${toggle&&'active'}`} style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} }>  {props.trivieState.incorrect_answers[2]}</div>
+        <Answer opacity={`${toggle?1:0}`} toggle style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(true);settoggle(false)} }> {props.trivieState.correct_answer}</Answer>
+        <Answer opacity={`${toggle?1:0}`}  style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} } >  {props.trivieState.incorrect_answers[0]}</Answer>
+        <Answer opacity={`${toggle?1:0}`}  style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} }>  {props.trivieState.incorrect_answers[1]}</Answer>
+        <Answer opacity={`${toggle?1:0}`}  style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} }>  {props.trivieState.incorrect_answers[2]}</Answer>
 
-      </AnswersStyle>
+    
     </div>
 
   )
 }
 
 
-
-const AnswersStyle = styled.div`
-.title{
-  font-size:30px;
-  margin-top:50px;
-  margin-bottom:20px;
-  opacity:0;
-  transition: opacity 500ms;
-}
-.answers{
-  cursor: pointer;
+const Answer = styled.div`
+cursor: pointer;
   user-select:none;
   margin-top:10px;
   margin-bottom:10px;
   padding:8px;
   border: 1px solid silver;
   border-radius:5px;
-  opacity:0;
+  opacity: ${props=>props.opacity};
   transition: background-color 500ms, opacity 500ms;
 
 
@@ -68,9 +59,14 @@ const AnswersStyle = styled.div`
       background-color:silver;
       color:white;
     }
-}
-.active{
-  opacity:1;
-}
+`
+const Title = styled.div`
+
+  font-size:30px;
+  margin-top:50px;
+  margin-bottom:20px;
+  opacity: ${props=>props.opacity};
+  transition: opacity 500ms;
+
 
 `
