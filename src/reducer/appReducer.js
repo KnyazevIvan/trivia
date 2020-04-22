@@ -32,6 +32,15 @@ export function fetchTrivia(theme) {
     if (theme === 'televishion') {
       url = 14
     }
+    if (theme === 'films') {
+      url = 11
+    }
+    if (theme === 'music') {
+      url = 12
+    }
+    if (theme === 'history') {
+      url = 23
+    }
     const response = await fetch(`https://opentdb.com/api.php?amount=5&category=${url}&difficulty=easy&type=multiple`)
     const json = await response.json()
     dispatch({ type: FETCH_TRIVIA, payload: json.results })

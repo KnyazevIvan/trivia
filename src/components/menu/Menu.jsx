@@ -22,9 +22,9 @@ export const Menu = () => {
         <ListGroup>
           <NavLink to='/theme/games' style={{marginBottom:'20px',cursor:'pointer'}} className='block'><ListGroup.Item>Games</ListGroup.Item></NavLink>
           <NavLink to='/theme/televishion' style={{marginBottom:'20px',cursor:'pointer'}}>    <ListGroup.Item>Televishion</ListGroup.Item></NavLink>
-          <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-          <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          <NavLink to='/theme/films' style={{marginBottom:'20px',cursor:'pointer'}} className='block'><ListGroup.Item>Films</ListGroup.Item></NavLink>
+          <NavLink to='/theme/music' style={{marginBottom:'20px',cursor:'pointer'}} className='block'><ListGroup.Item>Music</ListGroup.Item></NavLink>
+          <NavLink to='/theme/history' style={{marginBottom:'20px',cursor:'pointer'}} className='block'><ListGroup.Item>History</ListGroup.Item></NavLink>
         </ListGroup>
       </div>
 

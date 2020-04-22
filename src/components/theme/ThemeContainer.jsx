@@ -35,7 +35,7 @@ let counter = (answer) => {
   if (props.page===4){
     setTimeout(() => {
       setresult(true)
-    }, 500);
+    }, 1000);
   }
 } 
 if (result){

@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Markup } from 'interweave'
 import styled from 'styled-components/macro'
+import { Answer } from './Answer'
 
 export const Theme = (props) => {
 
   const [toggle, settoggle] = useState(false)
-  
+  const [showTrueAnswer, setshowTrueAnswer] = useState(false)
+
   useEffect(() => {
+    if(props.page===0){
+      settoggle(true)
+    }
     setTimeout(() => {
       settoggle(true)
     }, 100);
@@ -26,15 +31,16 @@ export const Theme = (props) => {
     
 
 
-        <Title  opacity={`${toggle?1:0}`}><Markup content={props.trivieState.question} /></Title>
+        <Title  opacity={toggle?1:0}><Markup content={props.trivieState.question} /></Title>
 
 
 
-        <Answer opacity={`${toggle?1:0}`} toggle style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(true);settoggle(false)} }> {props.trivieState.correct_answer}</Answer>
-        <Answer opacity={`${toggle?1:0}`}  style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} } >  {props.trivieState.incorrect_answers[0]}</Answer>
-        <Answer opacity={`${toggle?1:0}`}  style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} }>  {props.trivieState.incorrect_answers[1]}</Answer>
-        <Answer opacity={`${toggle?1:0}`}  style={{ order: Math.floor(Math.random() * Math.floor(10)) }} onClick={() =>{props.counter(false);settoggle(false)} }>  {props.trivieState.incorrect_answers[2]}</Answer>
+        <Answer true={true} setshowTrueAnswer={setshowTrueAnswer} showTrueAnswer={showTrueAnswer} text= {props.trivieState.correct_answer} toggle={toggle} counter={props.counter} settoggle={settoggle} ></Answer>
 
+        {props.trivieState.incorrect_answers.map(el=><Answer setshowTrueAnswer={setshowTrueAnswer} true={false} text= {el} toggle={toggle} counter={props.counter} settoggle={settoggle}/>)}
+        
+
+       
     
     </div>
 
@@ -42,31 +48,13 @@ export const Theme = (props) => {
 }
 
 
-const Answer = styled.div`
-cursor: pointer;
-  user-select:none;
-  margin-top:10px;
-  margin-bottom:10px;
-  padding:8px;
-  border: 1px solid silver;
-  border-radius:5px;
-  opacity: ${props=>props.opacity};
-  transition: background-color 500ms, opacity 500ms;
-
-
-    &:hover{
-      box-shadow: 0 0 5px;
-      background-color:silver;
-      color:white;
-    }
-`
 const Title = styled.div`
 
   font-size:30px;
   margin-top:50px;
   margin-bottom:20px;
   opacity: ${props=>props.opacity};
-  transition: opacity 500ms;
+  transition: opacity 0ms ease 900ms;
 
 
 `
