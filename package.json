@@ -1,5 +1,5 @@
 {
-  "homepage ": "http://ivanichiki.github.io/trivia",
+  "homepage ": "https://ivanichiki.github.io/trivia",
   "name": "trivia",
   "version": "0.1.0",
   "private": true,
@@ -21,12 +21,12 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
