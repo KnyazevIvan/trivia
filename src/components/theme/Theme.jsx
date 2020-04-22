@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Markup } from 'interweave'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const Theme = (props) => {
 

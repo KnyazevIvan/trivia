@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 
 const Header_wrapper = styled.div`
